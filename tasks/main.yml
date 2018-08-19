@@ -1,0 +1,13 @@
+---
+- name: Install NFS utilities
+  package:
+    name: nfs-utils
+    state: latest
+  become: true
+
+- name: Ensure rpcbind is enabled and started
+  service:
+    name: rpcbind
+    state: started
+    enabled: true
+  become: true
